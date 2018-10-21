@@ -5,7 +5,6 @@ module.exports = {
     description: 'Notes and resources about frontend web development.',
     siteUrl: 'https://www.giuseppedesantis.net',
   },
-  pathPrefix: '/',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
