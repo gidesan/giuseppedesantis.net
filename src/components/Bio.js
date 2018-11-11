@@ -28,9 +28,7 @@ class Bio extends React.Component {
         />
         <p>
           I'm <strong>Giuseppe de Santis</strong> and I waited for 35 years before starting a blog.{' '}
-          <a href="https://twitter.com/gidesan">
-            Follow me on Twitter
-          </a>
+          And before <a href="https://twitter.com/gidesan">tweeting</a> as well.
         </p>
       </div>
     )
