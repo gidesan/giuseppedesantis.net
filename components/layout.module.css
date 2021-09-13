@@ -1,0 +1,13 @@
+.container {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 480px;
+  margin: auto;
+
+  font-weight: 400;
+}
