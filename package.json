@@ -1,15 +1,49 @@
 {
-  "name": "learn-starter",
-  "version": "0.1.0",
+  "name": "giuseppedesantis-net",
+  "type": "module",
+  "version": "2.0.0",
   "private": true,
+  "packageManager": "pnpm@11.8.0",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "preinstall": "pnpm dlx only-allow pnpm",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "check": "astro check",
+    "clean": "rm -rf dist .astro node_modules",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "update": "pnpm up --latest",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "e2e": "playwright test",
+    "e2e:init": "pnpm exec playwright install",
+    "lhci": "sh scripts/lhci.sh",
+    "toolbar:no": "astro preferences disable devToolbar",
+    "toolbar:yes": "astro preferences enable devToolbar"
   },
   "dependencies": {
-    "next": "^11.0.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource/fira-sans": "^5.2.8",
+    "@tailwindcss/vite": "^4.3.1",
+    "astro": "^7.2.0",
+    "tailwindcss": "^4.3.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@eslint/js": "^10.0.1",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.61.0",
+    "eslint": "^10.6.0",
+    "eslint-plugin-astro": "^2.1.1",
+    "globals": "^17.7.0",
+    "html-minifier-next": "^7.0.0",
+    "prettier": "^3.8.4",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "sharp": "^0.34.5",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.0"
   }
 }

@@ -1,0 +1,23 @@
+---
+import Meta from "@components/shell/Meta.astro";
+import GoogleTag from "@components/shell/GoogleTag.astro";
+import "@styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Meta title={title} description={description} />
+    <GoogleTag />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <slot />
+  </body>
+</html>
