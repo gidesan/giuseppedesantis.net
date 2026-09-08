@@ -1,0 +1,11 @@
+# Build configuration, version-controlled so it no longer depends on stale
+# settings left in the Netlify UI from the Gatsby/Next.js era.
+[build]
+  command = "pnpm build"
+  publish = "dist"
+
+[build.environment]
+  # Astro 7 needs a modern Node; pin it so the UI's old NODE_VERSION can't win.
+  NODE_VERSION = "22"
+  # Use the pnpm version from package.json's "packageManager" field via Corepack.
+  COREPACK_ENABLE_STRICT = "0"

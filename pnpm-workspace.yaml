@@ -1,0 +1,17 @@
+# pnpm workspace + settings file.
+#
+# This repo is a single package (the root), so there are no workspace members
+# to declare. The file exists because pnpm 11 reads non-auth settings from here
+# (camelCase keys) rather than from .npmrc.
+packages: []
+
+# Dependencies whose install/build scripts are allowed to run (pnpm blocks all
+# by default). Sharp (Astro's image optimizer) and esbuild need theirs.
+allowBuilds:
+  esbuild: true
+  sharp: true
+
+# Supply-chain hardening: only install package versions that have been public
+# for at least this many MINUTES, giving time for compromised releases to be
+# spotted and yanked. 360 = 6h.
+minimumReleaseAge: 360

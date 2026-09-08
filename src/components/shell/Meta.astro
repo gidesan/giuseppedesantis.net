@@ -1,0 +1,80 @@
+---
+import { SITE, SOCIAL_LINKS } from "@/site";
+import firaSansRegular from "@fontsource/fira-sans/files/fira-sans-latin-400-normal.woff2";
+import firaSansItalic from "@fontsource/fira-sans/files/fira-sans-latin-400-italic.woff2";
+import firaSansBlack from "@fontsource/fira-sans/files/fira-sans-latin-900-normal.woff2";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = SITE.description } = Astro.props;
+
+const pageTitle = title ?? `${SITE.title} — ${SITE.tagline}`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+
+// Person schema: makes the name/role/profiles machine-readable for search
+// engines and knowledge panels.
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: SITE.author,
+  jobTitle: SITE.tagline,
+  url: SITE.url,
+  sameAs: SOCIAL_LINKS.map((link) => link.href),
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+<meta name="author" content={SITE.author} />
+<link rel="canonical" href={canonical} />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:site_name" content={SITE.title} />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:creator" content={SITE.twitterHandle} />
+
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="theme-color" content="#1f2933" />
+
+<!-- Preload the above-the-fold Fira Sans cuts so the heading and subtitle
+     don't reflow when the webfont swaps in (FOUT). -->
+<link
+  rel="preload"
+  href={firaSansRegular}
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href={firaSansItalic}
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href={firaSansBlack}
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(personSchema)}
+/>

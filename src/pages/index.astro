@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SocialLinks from "@components/SocialLinks.astro";
+import { SITE } from "@/site";
+---
+
+<BaseLayout>
+  <main
+    class="mx-auto flex w-[480px] max-w-full flex-1 flex-col items-center justify-center gap-[4.5rem] px-4 py-[3.125rem]"
+  >
+    <h1
+      class="text-center text-[clamp(3rem,15vw,6rem)] leading-[1.2] font-black"
+    >
+      {SITE.title}
+    </h1>
+    <p class="text-[clamp(1.5rem,6vw,2.25rem)] leading-[1.3] italic">
+      {SITE.tagline}
+    </p>
+    <SocialLinks />
+  </main>
+</BaseLayout>

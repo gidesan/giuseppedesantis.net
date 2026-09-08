@@ -1,0 +1,20 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@styles/*": ["src/styles/*"]
+    },
+    "strictNullChecks": true,
+    "target": "ES2020",
+    "types": ["astro/client"],
+    "verbatimModuleSyntax": true
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", "e2e"]
+}
