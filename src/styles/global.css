@@ -1,6 +1,6 @@
-@import "@fontsource/fira-sans/400.css";
-@import "@fontsource/fira-sans/400-italic.css";
-@import "@fontsource/fira-sans/900.css";
+@import "@fontsource/fira-sans/latin-400.css";
+@import "@fontsource/fira-sans/latin-400-italic.css";
+@import "@fontsource/fira-sans/latin-900.css";
 @import "tailwindcss";
 
 @theme {

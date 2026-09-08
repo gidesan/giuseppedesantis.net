@@ -1,5 +1,8 @@
 ---
 import { SITE, SOCIAL_LINKS } from "@/site";
+import firaSansRegular from "@fontsource/fira-sans/files/fira-sans-latin-400-normal.woff2";
+import firaSansItalic from "@fontsource/fira-sans/files/fira-sans-latin-400-italic.woff2";
+import firaSansBlack from "@fontsource/fira-sans/files/fira-sans-latin-900-normal.woff2";
 
 interface Props {
   title?: string;
@@ -45,6 +48,30 @@ const personSchema = {
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <meta name="theme-color" content="#1f2933" />
+
+<!-- Preload the above-the-fold Fira Sans cuts so the heading and subtitle
+     don't reflow when the webfont swaps in (FOUT). -->
+<link
+  rel="preload"
+  href={firaSansRegular}
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href={firaSansItalic}
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href={firaSansBlack}
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
 
 <script
   is:inline
