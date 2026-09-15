@@ -5,6 +5,13 @@
 # (camelCase keys) rather than from .npmrc.
 packages: []
 
+# Force patched versions of transitive dependencies pulled in only by
+# @lhci/cli (Lighthouse CI, dev-only tooling) that Dependabot flagged and
+# that @lhci/cli itself won't bump on its own.
+overrides:
+  tmp: ^0.2.6
+  uuid: ^11.1.1
+
 # Dependencies whose install/build scripts are allowed to run (pnpm blocks all
 # by default). Sharp (Astro's image optimizer) and esbuild need theirs.
 allowBuilds:
