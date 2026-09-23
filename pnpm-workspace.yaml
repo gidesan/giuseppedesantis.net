@@ -11,6 +11,13 @@ packages: []
 overrides:
   tmp: ^0.2.6
   uuid: ^11.1.1
+  qs: '>=6.16.0'
+  # extract-zip has no patched release upstream; @puppeteer/browsers 3.x
+  # dropped it entirely (replaced with modern-tar). Safe here because
+  # puppeteer-core's connect() path (the only one lighthouse/lhci uses —
+  # it never calls launch()) only needs detectBrowserPlatform,
+  # resolveDefaultUserDataDir and the Browser enum, all unchanged in 3.x.
+  '@puppeteer/browsers': ^3.2.2
 
 # Dependencies whose install/build scripts are allowed to run (pnpm blocks all
 # by default). Sharp (Astro's image optimizer) and esbuild need theirs.
