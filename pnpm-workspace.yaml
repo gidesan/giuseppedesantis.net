@@ -11,7 +11,7 @@ packages: []
 overrides:
   tmp: ^0.2.6
   uuid: ^11.1.1
-  qs: '>=6.16.0'
+  qs: '>=6.16.1'
   brace-expansion@1: ^1.1.21
   # extract-zip has no patched release upstream; @puppeteer/browsers 3.x
   # dropped it entirely (replaced with modern-tar). Safe here because
